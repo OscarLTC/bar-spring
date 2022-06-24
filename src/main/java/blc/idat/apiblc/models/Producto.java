@@ -36,10 +36,6 @@ public class Producto implements Serializable {
     private boolean estado;
 
     @ManyToOne
-    @JoinColumn(name="cod_categoria", nullable = false)
-    private Categoria categoria;
-
-    @ManyToOne
     @JoinColumn(name="cod_marca", nullable = false)
     private Marca marca;
 
