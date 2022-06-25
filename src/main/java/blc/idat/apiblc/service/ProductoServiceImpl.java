@@ -39,7 +39,9 @@ public class ProductoServiceImpl implements ProductoService{
     }
 
     @Override
-    public Optional<Producto> findById(Long id){ return proRepo.findById(id);}
+    public Optional<Producto> findById(Long id){
+        return proRepo.findById(id);
+    }
 
 
 
