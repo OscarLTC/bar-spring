@@ -4,10 +4,7 @@ package blc.idat.apiblc.rest;
 import blc.idat.apiblc.models.Producto;
 import blc.idat.apiblc.service.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,9 +17,13 @@ public class ProductoController {
     @Autowired
     private ProductoService proService;
 
-    @GetMapping
+    @GetMapping("/all")
     public List<Producto> findAll(){
         return proService.findAll();
     }
 
+    @GetMapping("/all/{id}")
+    public List<Producto> findByCliente(@PathVariable("id") int id){
+        return proService.findByCliente(id);
+    }
 }

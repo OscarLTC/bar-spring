@@ -8,6 +8,8 @@ public interface ProductoService {
 
     List<Producto> findAll();
 
+    List<Producto> findByCliente(int id);
+
 
 
 }
