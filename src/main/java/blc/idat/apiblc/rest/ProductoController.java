@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @RestController
@@ -26,4 +27,10 @@ public class ProductoController {
     public List<Producto> findByCliente(@PathVariable("id") int id){
         return proService.findByCliente(id);
     }
+
+    @GetMapping("/{id}")
+    public Optional<Producto> findById(@PathVariable Long id){
+        return proService.findById(id);
+    }
+
 }
