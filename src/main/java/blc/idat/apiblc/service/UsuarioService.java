@@ -10,5 +10,7 @@ public interface UsuarioService {
 
     List<Usuario> listUsers();
 
+    Usuario login(String email, String pass);
+
 
 }

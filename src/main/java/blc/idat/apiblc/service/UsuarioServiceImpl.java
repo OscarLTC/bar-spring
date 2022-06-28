@@ -49,5 +49,20 @@ public class UsuarioServiceImpl implements UsuarioService {
         return usuRepo.findAll();
     }
 
+    @Override
+    public Usuario login(String email, String pass) {
+        Usuario usuario = usuRepo.searchByEmail(email);
+        IEncrypt encryptService = new Encrypt();
+    try {
+        if (encryptService.verifyPassword(pass, usuario.getContrasena())) {
+            return usuario;
+        } else {
+            return null;
+        }
+    }catch (Exception e){
+        return null;
+        }
+    }
+
 
 }
