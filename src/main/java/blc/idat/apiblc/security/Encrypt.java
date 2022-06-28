@@ -17,7 +17,9 @@ public class Encrypt implements IEncrypt {
     }
 
     @Override
-    public String verifyPassword(String originalPassword, String password) {
-        return null;
+    public boolean verifyPassword(String originalPassword, String password) {
+        return passwordEncoded.matches(originalPassword, password);
     }
+
+
 }
