@@ -1,5 +1,6 @@
 package blc.idat.apiblc.service;
 
+import blc.idat.apiblc.models.Login;
 import blc.idat.apiblc.models.Usuario;
 
 import java.util.List;
@@ -11,6 +12,7 @@ public interface UsuarioService {
     List<Usuario> listUsers();
 
     Usuario login(String email, String pass);
-
+    Usuario changePassword(Login dataUser);
+    Usuario checkExistenceEmail(String email);
 
 }
