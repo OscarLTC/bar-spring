@@ -4,6 +4,6 @@ public interface IEncrypt {
 
     String encryptPassword(String password);
 
-    String verifyPassword(String originalPassword, String password);
+    boolean verifyPassword(String originalPassword, String password);
 
 }
