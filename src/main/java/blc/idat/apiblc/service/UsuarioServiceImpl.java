@@ -1,6 +1,7 @@
 package blc.idat.apiblc.service;
 
 import blc.idat.apiblc.models.Cliente;
+import blc.idat.apiblc.models.Login;
 import blc.idat.apiblc.models.Usuario;
 import blc.idat.apiblc.repository.ClienteRepository;
 import blc.idat.apiblc.repository.UsuarioRepository;
@@ -21,20 +22,23 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Autowired
     private ClienteRepository cliRepo;
 
+    private final IEncrypt encryptService = new Encrypt();
+
     @Override
     public Usuario registerUser(Usuario usuario) {
-        IEncrypt encryptService = new Encrypt();
         usuario.setContrasena(encryptService.encryptPassword(usuario.getContrasena()));
         try{
-            Usuario newUsuario = usuRepo.save(usuario);
+            Usuario usuarioInBd = usuRepo.searchByEmail(usuario.getCorreo());
 
-            Usuario usuarioInBd = usuRepo.searchByEmail(newUsuario.getCorreo());
+            if (usuarioInBd != null) throw new Exception();
 
-            if (usuarioInBd == null) throw new Exception();
+            usuRepo.save(usuario);
+
+            Usuario newUsuario = usuRepo.searchByEmail(usuario.getCorreo());
 
             Cliente clientOfNewUser = new Cliente();
 
-            clientOfNewUser.setUsuario(usuarioInBd);
+            clientOfNewUser.setUsuario(newUsuario);
             cliRepo.save(clientOfNewUser);
 
             return newUsuario;
@@ -62,6 +66,24 @@ public class UsuarioServiceImpl implements UsuarioService {
     }catch (Exception e){
         return null;
         }
+    }
+
+
+
+    @Override
+    public Usuario changePassword(Login dataUser) {
+        Usuario usuario = usuRepo.searchByEmail(dataUser.getEmail());
+
+        usuario.setContrasena(encryptService.encryptPassword(dataUser.getPass()));
+
+        usuRepo.save(usuario);
+        return usuario;
+
+    }
+
+    @Override
+    public Usuario checkExistenceEmail(String email) {
+        return usuRepo.searchByEmail(email);
     }
 
 
