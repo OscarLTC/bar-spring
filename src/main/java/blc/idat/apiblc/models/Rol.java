@@ -22,7 +22,7 @@ public class Rol implements Serializable {
 
     @Id
     @Column(name = "cod_rol")
-    private long rol;
+    private long codigo;
 
     @Column(name = "nombre")
     private String nombre;
