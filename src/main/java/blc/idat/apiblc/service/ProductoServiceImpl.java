@@ -43,6 +43,11 @@ public class ProductoServiceImpl implements ProductoService{
         return proRepo.findById(id);
     }
 
+    @Override
+    public Producto registerProduct(Producto pro){
+        return proRepo.save(pro);
+    }
+
 
 
 }
