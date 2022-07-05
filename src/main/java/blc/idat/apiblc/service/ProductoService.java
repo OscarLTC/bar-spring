@@ -13,5 +13,6 @@ public interface ProductoService {
 
     Optional<Producto> findById(Long id);
 
+    Producto registerProduct(Producto pro);
 
 }
