@@ -35,9 +35,8 @@ public class ProductoController {
     }
 
     @PostMapping("/save")
-    public int registerProduct(@RequestBody Producto pro){
-        proService.registerProduct(pro);
-        return Response.SC_OK;
+    public Producto registerProduct(@RequestBody Producto pro){
+        return proService.registerProduct(pro);
     }
 
 
