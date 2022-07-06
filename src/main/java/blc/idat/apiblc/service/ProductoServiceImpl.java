@@ -48,6 +48,12 @@ public class ProductoServiceImpl implements ProductoService{
         return proRepo.save(pro);
     }
 
+    @Override
+    public Producto updateProduct(Producto pro, Long id){
+        pro.setCodigo(id);
+        return proRepo.save(pro);
+    }
+
 
 
 }
