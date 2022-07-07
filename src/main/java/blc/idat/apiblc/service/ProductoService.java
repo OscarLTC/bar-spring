@@ -1,5 +1,6 @@
 package blc.idat.apiblc.service;
 
+import blc.idat.apiblc.models.Precio;
 import blc.idat.apiblc.models.Producto;
 
 import java.util.List;
@@ -16,4 +17,7 @@ public interface ProductoService {
     Producto registerProduct(Producto pro);
     Producto updateProduct(Producto pro, Long id);
 
+    List<Producto> findByName(String name);
+
+    List<Producto> findByPrecio(Precio precio);
 }
