@@ -18,4 +18,14 @@ public interface ProductoRepository extends JpaRepository<Producto, Long> {
             "having SUM(d.cantidad)\n" +
             "order by SUM(d.cantidad) desc \n", nativeQuery = true)
     List<Producto> findByCliente(@Param("id") int id);
+
+
+    @Query(value="select * from producto p\n" +
+            "where p.descripcion  like CONCAT('%', :name, '%') ", nativeQuery=true)
+    List<Producto> findByName(@Param("name") String name);
+
+    @Query(value = "select * from producto p\n" +
+            "where p.precio BETWEEN :min and :max", nativeQuery = true)
+    List<Producto> findByPrecio(@Param("min") double min, @Param("max") double max);
+
 }

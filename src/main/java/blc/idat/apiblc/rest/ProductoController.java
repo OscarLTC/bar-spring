@@ -1,6 +1,7 @@
 package blc.idat.apiblc.rest;
 
 
+import blc.idat.apiblc.models.Precio;
 import blc.idat.apiblc.models.Producto;
 import blc.idat.apiblc.service.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +42,16 @@ public class ProductoController {
     @PutMapping("/update/{id}")
     public Producto updateProduct(@RequestBody Producto pro, @PathVariable("id") Long id ){
         return proService.updateProduct(pro, id);
+    }
+
+    @GetMapping("/nombre/{name}")
+    public List<Producto> findByName(@PathVariable("name") String name){
+        return proService.findByName(name);
+    }
+
+    @PostMapping("/precio")
+    public List<Producto> findByPrecio(@RequestBody Precio precio){
+        return proService.findByPrecio(precio);
     }
 
 }

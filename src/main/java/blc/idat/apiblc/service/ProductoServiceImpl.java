@@ -1,5 +1,6 @@
 package blc.idat.apiblc.service;
 
+import blc.idat.apiblc.models.Precio;
 import blc.idat.apiblc.models.Producto;
 import blc.idat.apiblc.repository.ProductoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,6 +55,15 @@ public class ProductoServiceImpl implements ProductoService{
         return proRepo.save(pro);
     }
 
+    @Override
+    public List<Producto> findByName(String name) {
+        return proRepo.findByName(name);
+    }
+
+    @Override
+    public List<Producto> findByPrecio(Precio precio) {
+        return proRepo.findByPrecio(precio.getMin(), precio.getMax());
+    }
 
 
 }
