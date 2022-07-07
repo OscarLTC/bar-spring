@@ -3,7 +3,6 @@ package blc.idat.apiblc.rest;
 
 import blc.idat.apiblc.models.Producto;
 import blc.idat.apiblc.service.ProductoService;
-import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,6 +38,9 @@ public class ProductoController {
         return proService.registerProduct(pro);
     }
 
-
+    @PutMapping("/update/{id}")
+    public Producto updateProduct(@RequestBody Producto pro, @PathVariable("id") Long id ){
+        return proService.updateProduct(pro, id);
+    }
 
 }
