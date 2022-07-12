@@ -54,4 +54,9 @@ public class ProductoController {
         return proService.findByPrecio(precio);
     }
 
+    @GetMapping("/categoria/{id}")
+    public List<Producto> findByCategory(@PathVariable("id") Long id){
+        return proService.findByCategory(id);
+    }
+
 }

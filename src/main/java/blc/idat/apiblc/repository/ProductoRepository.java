@@ -28,4 +28,10 @@ public interface ProductoRepository extends JpaRepository<Producto, Long> {
             "where p.precio BETWEEN :min and :max", nativeQuery = true)
     List<Producto> findByPrecio(@Param("min") double min, @Param("max") double max);
 
+
+    @Query(value = "SELECT p.cod_producto, p.descripcion, p.precio, p.imagen, p.estado, p.cod_marca \n" +
+            "FROM producto p\n" +
+            "inner join marca m on p.cod_marca = m.cod_marca\n" +
+            "where m.cod_categoria = :id", nativeQuery = true)
+    List<Producto> findByCategory(@Param("id") Long id);
 }

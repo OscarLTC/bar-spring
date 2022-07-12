@@ -65,5 +65,10 @@ public class ProductoServiceImpl implements ProductoService{
         return proRepo.findByPrecio(precio.getMin(), precio.getMax());
     }
 
+    @Override
+    public List<Producto> findByCategory(Long id) {
+        return proRepo.findByCategory(id);
+    }
+
 
 }
