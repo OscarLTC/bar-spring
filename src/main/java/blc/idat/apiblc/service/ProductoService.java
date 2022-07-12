@@ -20,4 +20,6 @@ public interface ProductoService {
     List<Producto> findByName(String name);
 
     List<Producto> findByPrecio(Precio precio);
+
+    List<Producto> findByCategory(Long id);
 }
