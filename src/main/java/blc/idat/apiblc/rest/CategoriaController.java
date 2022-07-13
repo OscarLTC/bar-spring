@@ -23,4 +23,6 @@ public class CategoriaController {
     public List<Categoria> findAll(){
         return categoriaService.findAll();
     }
+
+
 }

@@ -34,4 +34,8 @@ public interface ProductoRepository extends JpaRepository<Producto, Long> {
             "inner join marca m on p.cod_marca = m.cod_marca\n" +
             "where m.cod_categoria = :id", nativeQuery = true)
     List<Producto> findByCategory(@Param("id") Long id);
+
+    @Query(value = "select p from Producto p where p.marca.codigo = :id")
+    List<Producto> findByBrand(@Param("id") Long id);
+
 }

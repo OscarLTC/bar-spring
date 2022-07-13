@@ -7,4 +7,6 @@ import java.util.List;
 public interface MarcaService {
 
     List<Marca> findAll();
+
+    List<Marca> findByCategory(Long id);
 }

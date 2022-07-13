@@ -3,10 +3,7 @@ package blc.idat.apiblc.rest;
 import blc.idat.apiblc.models.Marca;
 import blc.idat.apiblc.service.MarcaService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,4 +19,10 @@ public class MarcaController {
     public List<Marca> findAll(){
         return marcaService.findAll();
     }
+
+    @GetMapping("/byCategory/{id}")
+    public List<Marca> findByCategory(@PathVariable Long id){
+        return marcaService.findByCategory(id);
+    }
+
 }

@@ -22,4 +22,5 @@ public interface ProductoService {
     List<Producto> findByPrecio(Precio precio);
 
     List<Producto> findByCategory(Long id);
+    List<Producto> findByBrand(Long id);
 }
