@@ -59,4 +59,11 @@ public class ProductoController {
         return proService.findByCategory(id);
     }
 
+    @GetMapping("/marca/{id}")
+    public List<Producto> findByBrand(@PathVariable("id") Long id){
+        return proService.findByBrand(id);
+    }
+
+
+
 }

@@ -70,5 +70,9 @@ public class ProductoServiceImpl implements ProductoService{
         return proRepo.findByCategory(id);
     }
 
+    @Override
+    public List<Producto> findByBrand(Long id){
+        return proRepo.findByBrand(id);
+    }
 
 }

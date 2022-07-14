@@ -19,4 +19,9 @@ public class MarcaServiceImpl implements MarcaService{
         return marcaRepository.findAll();
     }
 
+    @Override
+    public List<Marca> findByCategory(Long id) {
+        return marcaRepository.findByCategory(id);
+    }
+
 }
