@@ -17,14 +17,7 @@ public class PedidoServiceImp implements PedidoService{
     private PedidoRepository pedRepo;
 
     @Override
-    public List<Pedido> findbyCliente(int id) {
-        List<Pedido> finalList = new ArrayList<Pedido>();
-
-        List<Pedido> allPedidos = pedRepo.findAll();
-        List<Pedido> clientePedidos = pedRepo.findByCliente(id);
-
-        finalList = Stream.concat(clientePedidos.stream(), allPedidos.stream()).collect(Collectors.toList());
-        finalList = (ArrayList<Pedido>) finalList.stream().distinct().collect(Collectors.toList());
-        return finalList;
+    public List<Pedido> findbyCliente(Long id) {
+        return pedRepo.findByCliente(id);
     }
 }
