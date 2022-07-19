@@ -9,9 +9,6 @@ import java.util.List;
 
 public interface PedidoRepository extends JpaRepository<Pedido, Long> {
 
-    @Query(value = "select * from pedido p \n" +
-            "inner join cliente c on p.cod_cliente=c.cod_cliente \n" +
-            "where c.cod_cliente = :id"
-            , nativeQuery = true)
-    List<Pedido> findByCliente(@Param("id") int id);
+    @Query(value = "select p from Pedido p where p.cliente.codigo = :id")
+    List<Pedido> findByCliente(@Param("id") long id);
 }

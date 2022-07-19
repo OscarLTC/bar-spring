@@ -16,7 +16,7 @@ public class PedidoController {
     private PedidoService pedService;
 
     @GetMapping("/all/{id}")
-    public List<Pedido> findByCliente(@PathVariable("id") int id){
+    public List<Pedido> findByCliente(@PathVariable("id") Long id){
         return pedService.findbyCliente(id);
     }
 }
