@@ -6,6 +6,8 @@ import blc.idat.apiblc.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class ClienteServiceImpl implements ClienteService{
 
@@ -18,4 +20,10 @@ public class ClienteServiceImpl implements ClienteService{
         cl.setUsuario(user);
         return cliRepo.save(cl);
     }
+
+    @Override
+    public Optional<Cliente> findByUser(Long codigo){
+        return cliRepo.findByClient(codigo);
+    }
+
 }
