@@ -34,10 +34,11 @@ public class Pedido implements Serializable {
     @Column(name = "precio_total")
     private Double precio_total;
 
-    @Column(name = "cod_pedido_estado")
-    private int cod_pedido_estado;
+    @ManyToOne
+    @JoinColumn(name = "cod_pedido_estado", nullable = false)
+    private Estado estado;
 
     @ManyToOne
     @JoinColumn(name="cod_cliente", nullable = false)
-    private Cliente cod_cliente;
+    private Cliente cliente;
 }
