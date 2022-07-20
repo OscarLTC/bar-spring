@@ -20,4 +20,9 @@ public class ClienteController {
         return cliService.findByUser(codigo);
     }
 
+    @PutMapping("/update/{id}")
+    public Cliente updateCliente(@RequestBody Cliente cli, @PathVariable("id") Long id ){
+        return cliService.updateClient(cli,id);
+    }
+
 }
