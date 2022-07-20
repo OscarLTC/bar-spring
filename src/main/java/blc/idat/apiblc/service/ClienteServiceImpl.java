@@ -26,4 +26,10 @@ public class ClienteServiceImpl implements ClienteService{
         return cliRepo.findByClient(codigo);
     }
 
+    @Override
+    public Cliente updateClient(Cliente cl, Long id) {
+        cl.setCodigo(id);
+        return cliRepo.save(cl);
+    }
+
 }

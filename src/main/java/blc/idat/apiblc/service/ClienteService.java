@@ -11,4 +11,6 @@ public interface ClienteService {
 
     Optional<Cliente> findByUser(Long codigo);
 
+    Cliente updateClient(Cliente cl, Long id);
+
 }
