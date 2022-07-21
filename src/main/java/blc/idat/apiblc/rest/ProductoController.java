@@ -1,7 +1,7 @@
 package blc.idat.apiblc.rest;
 
 
-import blc.idat.apiblc.models.Precio;
+import blc.idat.apiblc.models.custom.Precio;
 import blc.idat.apiblc.models.Producto;
 import blc.idat.apiblc.service.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;

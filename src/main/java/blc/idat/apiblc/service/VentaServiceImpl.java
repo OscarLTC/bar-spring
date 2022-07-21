@@ -1,6 +1,8 @@
 package blc.idat.apiblc.service;
 
 import blc.idat.apiblc.models.*;
+import blc.idat.apiblc.models.custom.DetalleProducto;
+import blc.idat.apiblc.models.custom.Venta;
 import blc.idat.apiblc.repository.ClienteRepository;
 import blc.idat.apiblc.repository.DetallePedidoRepository;
 import blc.idat.apiblc.repository.EstadoRepository;
@@ -41,7 +43,7 @@ public class VentaServiceImpl implements VentaService{
         for(DetalleProducto detalle : venta.getDetalle()){
             DetallePedido detallePedido = new DetallePedido();
             detallePedido.setIdproducto(detalle.getIdproducto());
-            detallePedido.setIdpedido((long) pedidoRepository.findLastOrder());
+            detallePedido.setIdpedido(pedido.getCod_pedido());
             detallePedido.setSubtotal(detalle.getSubtotal());
             detallePedido.setCantidad(detalle.getCantidad());
 
