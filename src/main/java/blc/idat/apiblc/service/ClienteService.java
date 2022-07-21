@@ -13,4 +13,6 @@ public interface ClienteService {
 
     Cliente updateClient(Cliente cl, Long id);
 
+    Cliente findById(int id);
+
 }

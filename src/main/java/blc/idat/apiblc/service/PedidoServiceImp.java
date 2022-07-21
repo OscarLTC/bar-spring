@@ -20,4 +20,9 @@ public class PedidoServiceImp implements PedidoService{
     public List<Pedido> findbyCliente(Long id) {
         return pedRepo.findByCliente(id);
     }
+
+    @Override
+    public Pedido save(Pedido pedido) {
+        return null;
+    }
 }

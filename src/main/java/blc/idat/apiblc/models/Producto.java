@@ -21,7 +21,7 @@ public class Producto implements Serializable {
 
     @Id
     @Column(name = "cod_producto")
-    private long codigo;
+    private Long codigo;
 
     @Column(name = "descripcion")
     private String descripcion;
