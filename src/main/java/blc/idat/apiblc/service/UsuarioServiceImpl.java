@@ -1,7 +1,7 @@
 package blc.idat.apiblc.service;
 
 import blc.idat.apiblc.models.Cliente;
-import blc.idat.apiblc.models.Login;
+import blc.idat.apiblc.models.custom.Login;
 import blc.idat.apiblc.models.Usuario;
 import blc.idat.apiblc.repository.ClienteRepository;
 import blc.idat.apiblc.repository.UsuarioRepository;
@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UsuarioServiceImpl implements UsuarioService {

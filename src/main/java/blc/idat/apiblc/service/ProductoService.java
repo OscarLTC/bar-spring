@@ -1,6 +1,6 @@
 package blc.idat.apiblc.service;
 
-import blc.idat.apiblc.models.Precio;
+import blc.idat.apiblc.models.custom.Precio;
 import blc.idat.apiblc.models.Producto;
 
 import java.util.List;

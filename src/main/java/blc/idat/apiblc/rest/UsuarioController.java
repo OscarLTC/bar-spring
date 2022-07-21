@@ -1,7 +1,7 @@
 package blc.idat.apiblc.rest;
 
 
-import blc.idat.apiblc.models.Login;
+import blc.idat.apiblc.models.custom.Login;
 import blc.idat.apiblc.models.Usuario;
 import blc.idat.apiblc.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;

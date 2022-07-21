@@ -1,6 +1,6 @@
 package blc.idat.apiblc.service;
 
-import blc.idat.apiblc.models.Login;
+import blc.idat.apiblc.models.custom.Login;
 import blc.idat.apiblc.models.Usuario;
 
 import java.util.List;

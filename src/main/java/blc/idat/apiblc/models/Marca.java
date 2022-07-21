@@ -19,6 +19,7 @@ public class Marca implements Serializable {
     private static final long serialVersion = 1L;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cod_marca")
     private long codigo;
 

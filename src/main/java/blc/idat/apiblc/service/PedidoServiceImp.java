@@ -2,17 +2,12 @@ package blc.idat.apiblc.service;
 
 import blc.idat.apiblc.models.Estado;
 import blc.idat.apiblc.models.Pedido;
-import blc.idat.apiblc.models.PedidoUpdateCustom;
+import blc.idat.apiblc.models.custom.PedidoUpdateCustom;
 import blc.idat.apiblc.repository.PedidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.Date;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Service
 public class PedidoServiceImp implements PedidoService{

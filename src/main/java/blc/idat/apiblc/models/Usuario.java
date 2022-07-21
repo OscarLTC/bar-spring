@@ -20,6 +20,7 @@ public class Usuario implements Serializable {
     private static final long serialVersion = 1L;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cod_usuario")
     private long codigo;
 
