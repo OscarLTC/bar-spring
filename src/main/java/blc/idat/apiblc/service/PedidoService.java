@@ -2,6 +2,7 @@ package blc.idat.apiblc.service;
 
 import blc.idat.apiblc.models.Pedido;
 import blc.idat.apiblc.models.PedidoUpdateCustom;
+import blc.idat.apiblc.models.Producto;
 
 import javax.swing.text.html.Option;
 import java.util.List;
@@ -15,4 +16,7 @@ public interface PedidoService {
     
     Pedido updatePedido(PedidoUpdateCustom pedidoCustom);
 
+    List<Pedido> findPedidosById(Long id);
+
+    List<Producto> findAllProducts(Long id);
 }

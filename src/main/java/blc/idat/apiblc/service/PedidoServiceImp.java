@@ -3,6 +3,7 @@ package blc.idat.apiblc.service;
 import blc.idat.apiblc.models.Estado;
 import blc.idat.apiblc.models.Pedido;
 import blc.idat.apiblc.models.PedidoUpdateCustom;
+import blc.idat.apiblc.models.Producto;
 import blc.idat.apiblc.repository.PedidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -49,5 +50,15 @@ public class PedidoServiceImp implements PedidoService{
             return null;
         }
 
+    }
+
+    @Override
+    public List<Pedido> findPedidosById(Long id) {
+        return pedRepo.findPedidosById(id);
+    }
+
+    @Override
+    public List<Producto> findAllProducts(Long id) {
+        return pedRepo.findAllProducts(id);
     }
 }
