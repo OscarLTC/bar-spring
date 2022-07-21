@@ -1,4 +1,4 @@
-package blc.idat.apiblc.models;
+package blc.idat.apiblc.models.custom;
 
 import lombok.Data;
 
