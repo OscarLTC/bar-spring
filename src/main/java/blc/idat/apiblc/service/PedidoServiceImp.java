@@ -26,6 +26,9 @@ public class PedidoServiceImp implements PedidoService{
     }
 
     @Override
+    public Pedido save(Pedido pedido) {
+        return null;
+    }
     public Pedido updatePedido(PedidoUpdateCustom pedidoCustom) {
         try{
             Pedido pedidoInBd = pedRepo.findById(pedidoCustom.getCod_pedido()).get();
@@ -47,6 +50,4 @@ public class PedidoServiceImp implements PedidoService{
         }
 
     }
-
-
 }

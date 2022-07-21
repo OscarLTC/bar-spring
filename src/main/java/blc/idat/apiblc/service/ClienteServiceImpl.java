@@ -32,4 +32,10 @@ public class ClienteServiceImpl implements ClienteService{
         return cliRepo.save(cl);
     }
 
+    @Override
+    public Cliente findById(int id) {
+        return cliRepo.findById(id);
+    }
+
+
 }

@@ -11,6 +11,8 @@ public interface PedidoService {
 
     List<Pedido> findbyCliente(Long id);
 
+    public Pedido save(Pedido pedido);
+    
     Pedido updatePedido(PedidoUpdateCustom pedidoCustom);
 
 }
