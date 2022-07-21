@@ -2,6 +2,7 @@ package blc.idat.apiblc.rest;
 
 import blc.idat.apiblc.models.Pedido;
 import blc.idat.apiblc.models.Venta;
+import blc.idat.apiblc.models.PedidoUpdateCustom;
 import blc.idat.apiblc.service.PedidoService;
 import blc.idat.apiblc.service.VentaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,5 +32,11 @@ public class PedidoController {
     public ResponseEntity<?> add(@RequestBody Venta venta){
         ventaService.saveVenta(venta);
         return ResponseEntity.status(HttpStatus.OK).body(null);
+    }
+    @PutMapping("/actualizar/{id}")
+    public Pedido updatePedido(@PathVariable("id") Long id,@RequestBody PedidoUpdateCustom pedidoUpdateCustom){
+        pedidoUpdateCustom.setCod_pedido(id);
+        return pedService.updatePedido(pedidoUpdateCustom);
+
     }
 }
