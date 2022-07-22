@@ -23,4 +23,6 @@ public interface ProductoService {
 
     List<Producto> findByCategory(Long id);
     List<Producto> findByBrand(Long id);
+
+    void updateStatus(Long id);
 }

@@ -5,6 +5,7 @@ import blc.idat.apiblc.models.custom.Precio;
 import blc.idat.apiblc.models.Producto;
 import blc.idat.apiblc.service.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -64,6 +65,9 @@ public class ProductoController {
         return proService.findByBrand(id);
     }
 
-
-
+    @GetMapping("/estado/{id}")
+    public ResponseEntity<?> updateStatus(@PathVariable("id") Long id){
+        proService.updateStatus(id);
+        return ResponseEntity.ok().build();
+    }
 }

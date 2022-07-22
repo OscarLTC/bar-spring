@@ -74,4 +74,9 @@ public class ProductoServiceImpl implements ProductoService{
         return proRepo.findByBrand(id);
     }
 
+    @Override
+    public void updateStatus(Long id) {
+        proRepo.updateStatus(id);
+    }
+
 }
