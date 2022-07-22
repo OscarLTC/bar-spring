@@ -9,9 +9,9 @@ public interface ClienteService {
 
     Cliente registerClientOnlyUser(Usuario user);
 
-    Optional<Cliente> findByUser(Long codigo);
+    Cliente findByUser(Long codigo);
 
-    Cliente updateClient(Cliente cl, Long id);
+    Cliente createClient(Cliente cl);
 
     Cliente findById(int id);
 

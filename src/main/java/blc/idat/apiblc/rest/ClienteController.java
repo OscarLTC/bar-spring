@@ -16,13 +16,13 @@ public class ClienteController {
     private ClienteService cliService;
 
     @GetMapping("/byUser/{codigo}")
-    public Optional<Cliente> findByUser(@PathVariable Long codigo){
+    public Cliente findByUser(@PathVariable Long codigo){
         return cliService.findByUser(codigo);
     }
 
-    @PutMapping("/update/{id}")
-    public Cliente updateCliente(@RequestBody Cliente cli, @PathVariable("id") Long id ){
-        return cliService.updateClient(cli,id);
+    @PostMapping("/save")
+    public Cliente updateCliente(@RequestBody Cliente cli){
+        return cliService.createClient(cli);
     }
 
 }

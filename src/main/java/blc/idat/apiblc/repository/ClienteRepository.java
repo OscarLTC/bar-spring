@@ -11,7 +11,7 @@ import java.util.Optional;
 public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 
     @Query("select c from Cliente c where c.usuario.codigo = :codigo")
-    Optional<Cliente> findByClient(@Param("codigo") Long codigo);
+    Cliente findByClient(@Param("codigo") Long codigo);
 
     @Query(value = "select * from cliente c where c.cod_cliente = :id", nativeQuery = true)
     Cliente findById(int id);
