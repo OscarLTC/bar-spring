@@ -65,7 +65,7 @@ public class ProductoController {
         return proService.findByBrand(id);
     }
 
-    @GetMapping("/estado/{id}")
+    @PutMapping("/estado/{id}")
     public ResponseEntity<?> updateStatus(@PathVariable("id") Long id){
         proService.updateStatus(id);
         return ResponseEntity.ok().build();
