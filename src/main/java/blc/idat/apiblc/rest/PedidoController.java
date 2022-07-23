@@ -1,9 +1,11 @@
 package blc.idat.apiblc.rest;
 
+import blc.idat.apiblc.models.DetallePedido;
 import blc.idat.apiblc.models.Pedido;
 import blc.idat.apiblc.models.Producto;
 import blc.idat.apiblc.models.custom.Venta;
 import blc.idat.apiblc.models.custom.PedidoUpdateCustom;
+import blc.idat.apiblc.service.DetallePedidoService;
 import blc.idat.apiblc.service.PedidoService;
 import blc.idat.apiblc.service.VentaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,12 +26,15 @@ public class PedidoController {
     @Autowired
     private  VentaService ventaService;
 
+    @Autowired
+    private DetallePedidoService detallePedidoService;
+
     @GetMapping("/all/{id}")
     public List<Pedido> findByCliente(@PathVariable("id") Long id){
         return pedService.findbyCliente(id);
     }
 
-    @PostMapping("/venta")
+   @PostMapping("/venta")
     public ResponseEntity<?> add(@RequestBody Venta venta){
         ventaService.saveVenta(venta);
         return ResponseEntity.status(HttpStatus.OK).body(null);
@@ -48,7 +53,8 @@ public class PedidoController {
     }
 
     @GetMapping("/listarProductos/{id}")
-    public List<Producto> findAllProducts(@PathVariable("id")Long id){
-        return pedService.findAllProducts(id);
+    public List<DetallePedido> findAllProducts(@PathVariable("id")Long id){
+        return detallePedidoService.findByIdOrder(id);
+
     }
 }

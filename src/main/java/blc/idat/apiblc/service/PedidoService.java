@@ -16,5 +16,4 @@ public interface PedidoService {
 
     List<Pedido> findPedidosById(Long id);
 
-    List<Producto> findAllProducts(Long id);
 }

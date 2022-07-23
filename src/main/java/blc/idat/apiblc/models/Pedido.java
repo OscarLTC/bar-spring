@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 @Builder
 @NoArgsConstructor
@@ -42,4 +44,10 @@ public class Pedido implements Serializable {
     @ManyToOne
     @JoinColumn(name="cod_cliente", nullable = false)
     private Cliente cliente;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "detallepedido",
+            joinColumns = {@JoinColumn(name = "cod_pedido")},
+            inverseJoinColumns = {@JoinColumn(name = "cod_producto")})
+    private List<Producto> productos = new ArrayList<Producto>();
 }

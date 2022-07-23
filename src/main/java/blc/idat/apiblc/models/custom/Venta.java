@@ -7,7 +7,7 @@ import java.util.Collection;
 
 @Data
 public class Venta {
-    private int idusuario;
+    private int idcliente;
     private int estado;
     private Date fecha_envio;
     private String dni_receptor;

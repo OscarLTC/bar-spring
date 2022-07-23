@@ -20,7 +20,4 @@ public interface PedidoRepository extends JpaRepository<Pedido, Long> {
     List<Pedido> findPedidosById(@Param("id") long id);
 
 
-    @Query(value = "select p from Producto p inner join DetallePedido dp on p.codigo=dp.idproducto\n" +
-            "where dp.idpedido = :id")
-    List<Producto> findAllProducts(@Param("id")long id);
 }

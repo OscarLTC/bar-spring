@@ -3,10 +3,7 @@ package blc.idat.apiblc.service;
 import blc.idat.apiblc.models.*;
 import blc.idat.apiblc.models.custom.DetalleProducto;
 import blc.idat.apiblc.models.custom.Venta;
-import blc.idat.apiblc.repository.ClienteRepository;
-import blc.idat.apiblc.repository.DetallePedidoRepository;
-import blc.idat.apiblc.repository.EstadoRepository;
-import blc.idat.apiblc.repository.PedidoRepository;
+import blc.idat.apiblc.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,7 +28,7 @@ public class VentaServiceImpl implements VentaService{
     public void saveVenta(Venta venta) {
 
         Pedido pedido = new Pedido();
-        pedido.setCliente(clienteRepository.findById(venta.getIdusuario()));
+        pedido.setCliente(clienteRepository.findById(venta.getIdcliente()));
         pedido.setPrecio_total(venta.getDetalle().stream().mapToDouble(detalle -> detalle.getSubtotal()).sum());
         pedido.setFecha_solicitud(new Date(System.currentTimeMillis()));
         pedido.setEstado(estadoRepository.findEstadoById(venta.getEstado()));
@@ -42,7 +39,7 @@ public class VentaServiceImpl implements VentaService{
 
         for(DetalleProducto detalle : venta.getDetalle()){
             DetallePedido detallePedido = new DetallePedido();
-            detallePedido.setIdproducto(detalle.getIdproducto());
+            detallePedido.setIdproducto( detalle.getIdproducto());
             detallePedido.setIdpedido(pedido.getCod_pedido());
             detallePedido.setSubtotal(detalle.getSubtotal());
             detallePedido.setCantidad(detalle.getCantidad());

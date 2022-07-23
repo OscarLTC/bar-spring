@@ -52,8 +52,5 @@ public class PedidoServiceImp implements PedidoService{
         return pedRepo.findPedidosById(id);
     }
 
-    @Override
-    public List<Producto> findAllProducts(Long id) {
-        return pedRepo.findAllProducts(id);
-    }
+
 }
