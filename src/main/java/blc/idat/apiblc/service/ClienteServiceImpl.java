@@ -22,13 +22,17 @@ public class ClienteServiceImpl implements ClienteService{
     }
 
     @Override
-    public Optional<Cliente> findByUser(Long codigo){
+    public Cliente findByUser(Long codigo){
         return cliRepo.findByClient(codigo);
     }
 
     @Override
-    public Cliente updateClient(Cliente cl, Long id) {
-        cl.setCodigo(id);
+    public Cliente createClient(Cliente cl) {
+
+        Cliente newCLiente = this.findByUser(cl.getUsuario().getCodigo());
+
+        if (newCLiente != null) return null;
+
         return cliRepo.save(cl);
     }
 

@@ -33,14 +33,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 
             usuRepo.save(usuario);
 
-            Usuario newUsuario = usuRepo.searchByEmail(usuario.getCorreo());
-
-            Cliente clientOfNewUser = new Cliente();
-
-            clientOfNewUser.setUsuario(newUsuario);
-            cliRepo.save(clientOfNewUser);
-
-            return newUsuario;
+            return usuario;
 
         } catch (Exception e){
             return null;
@@ -84,6 +77,7 @@ public class UsuarioServiceImpl implements UsuarioService {
     public Usuario checkExistenceEmail(String email) {
         return usuRepo.searchByEmail(email);
     }
+
 
 
 }
