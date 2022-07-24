@@ -16,4 +16,8 @@ public interface PedidoService {
 
     List<Pedido> findPedidosById(Long id);
 
+    List<Pedido> findAll();
+
+    Pedido updateEstadoPed(Pedido pedido);
+
 }
