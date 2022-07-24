@@ -9,6 +9,7 @@ import blc.idat.apiblc.service.DetallePedidoService;
 import blc.idat.apiblc.service.PedidoService;
 import blc.idat.apiblc.service.VentaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -56,5 +57,14 @@ public class PedidoController {
     public List<DetallePedido> findAllProducts(@PathVariable("id")Long id){
         return detallePedidoService.findByIdOrder(id);
 
+    }
+
+    @GetMapping("/all")
+    public List<Pedido> findAll(){ return pedService.findAll();}
+
+    @PutMapping("/estado/{id}")
+    public Pedido updateEstadoPed(@PathVariable("id") Long id,@RequestBody Pedido pedido){
+        pedido.setCod_pedido(id);
+        return pedService.updateEstadoPed(pedido);
     }
 }
