@@ -56,20 +56,12 @@ public class PedidoServiceImp implements PedidoService{
     public List<Pedido> findAll(){ return pedRepo.findAll();}
 
     @Override
-    public Pedido updateEstadoPed(Pedido pedido){
+    public Pedido updateEstadoPed(Long id, Estado estado){
         try{
-            Pedido pedidoInBd = pedRepo.findById(pedido.getCod_pedido()).get();
-            if (pedido.getEstado().getCodigo()==1&&pedido.getEstado().getNombre().equals("Pendiente")){
-                pedidoInBd.setEstado(new Estado(1, "Pendiente"));
-            } else if (pedido.getEstado().getCodigo()==2&&pedido.getEstado().getNombre().equals("Postergado")){
-                pedidoInBd.setEstado(new Estado(2, "Postergado"));
-            } else if (pedido.getEstado().getCodigo()==3&&pedido.getEstado().getNombre().equals("Entregado")){
-                pedidoInBd.setEstado(new Estado(3, "Entregado"));
-            } else if (pedido.getEstado().getCodigo()==4&&pedido.getEstado().getNombre().equals("Anulado")){
-                pedidoInBd.setEstado(new Estado(4, "Anulado"));
-            }else {
-                throw new Exception();
-            }
+            Pedido pedidoInBd = pedRepo.findById(id).get();
+
+            pedidoInBd.setEstado(estado);
+
             return pedRepo.save(pedidoInBd);
         }catch (Exception e){
             return null;
