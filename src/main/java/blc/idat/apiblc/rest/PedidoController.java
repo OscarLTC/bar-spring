@@ -1,6 +1,7 @@
 package blc.idat.apiblc.rest;
 
 import blc.idat.apiblc.models.DetallePedido;
+import blc.idat.apiblc.models.Estado;
 import blc.idat.apiblc.models.Pedido;
 import blc.idat.apiblc.models.Producto;
 import blc.idat.apiblc.models.custom.Venta;
@@ -63,8 +64,7 @@ public class PedidoController {
     public List<Pedido> findAll(){ return pedService.findAll();}
 
     @PutMapping("/estado/{id}")
-    public Pedido updateEstadoPed(@PathVariable("id") Long id,@RequestBody Pedido pedido){
-        pedido.setCod_pedido(id);
-        return pedService.updateEstadoPed(pedido);
+    public Pedido updateEstadoPed(@PathVariable("id") Long id,@RequestBody Estado estado){
+        return pedService.updateEstadoPed(id, estado);
     }
 }

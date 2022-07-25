@@ -1,5 +1,6 @@
 package blc.idat.apiblc.service;
 
+import blc.idat.apiblc.models.Estado;
 import blc.idat.apiblc.models.Pedido;
 import blc.idat.apiblc.models.Producto;
 import blc.idat.apiblc.models.custom.PedidoUpdateCustom;
@@ -18,6 +19,6 @@ public interface PedidoService {
 
     List<Pedido> findAll();
 
-    Pedido updateEstadoPed(Pedido pedido);
+    Pedido updateEstadoPed(Long id, Estado estado);
 
 }
