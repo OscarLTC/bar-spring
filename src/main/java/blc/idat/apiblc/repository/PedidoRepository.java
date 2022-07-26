@@ -21,6 +21,14 @@ public interface PedidoRepository extends JpaRepository<Pedido, Long> {
     @Query(value = "select * from pedido where cod_pedido = :id", nativeQuery = true)
     List<Pedido> findPedidosById(@Param("id") long id);
 
+    @Query(value = "select p from Pedido p where p.estado.codigo = :id")
+    List<Pedido> findPedidosByEstado(@Param("id") int id);
 
+    @Query(value = "select p from Pedido p where p.cliente.dni = :dni")
+    List<Pedido> findPedidosByDni(@Param("dni") String dni);
+
+    @Query(value = "select * from pedido p\n" +
+            "where p.fecha_envio BETWEEN :inicio and :fin", nativeQuery = true)
+    List<Pedido> findPedidosByDate(@Param("inicio") Date inicio, @Param("fin") Date fin);
 
 }

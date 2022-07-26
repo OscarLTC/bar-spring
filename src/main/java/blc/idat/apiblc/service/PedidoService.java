@@ -3,6 +3,7 @@ package blc.idat.apiblc.service;
 import blc.idat.apiblc.models.Estado;
 import blc.idat.apiblc.models.Pedido;
 import blc.idat.apiblc.models.Producto;
+import blc.idat.apiblc.models.custom.PedidoFecha;
 import blc.idat.apiblc.models.custom.PedidoUpdateCustom;
 
 import java.util.List;
@@ -20,5 +21,11 @@ public interface PedidoService {
     List<Pedido> findAll();
 
     Pedido updateEstadoPed(Long id, Estado estado);
+
+    List<Pedido> findPedidosByEstado(int id);
+
+    List<Pedido> findPedidosByDni(String dni);
+
+    List<Pedido> findPedidosByDate(PedidoFecha pedidoFecha);
 
 }
