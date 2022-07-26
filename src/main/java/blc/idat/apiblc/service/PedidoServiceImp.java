@@ -3,6 +3,7 @@ package blc.idat.apiblc.service;
 import blc.idat.apiblc.models.Estado;
 import blc.idat.apiblc.models.Pedido;
 import blc.idat.apiblc.models.Producto;
+import blc.idat.apiblc.models.custom.PedidoFecha;
 import blc.idat.apiblc.models.custom.PedidoUpdateCustom;
 import blc.idat.apiblc.repository.PedidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,4 +68,20 @@ public class PedidoServiceImp implements PedidoService{
             return null;
         }
     }
+
+    @Override
+    public List<Pedido> findPedidosByEstado(int id){
+        return pedRepo.findPedidosByEstado(id);
+    }
+
+    @Override
+    public List<Pedido> findPedidosByDni(String dni){
+        return pedRepo.findPedidosByDni(dni);
+    }
+
+    @Override
+    public List<Pedido> findPedidosByDate(PedidoFecha pedidoFecha){
+        return pedRepo.findPedidosByDate(pedidoFecha.getFecha_inicio() , pedidoFecha.getFecha_final());
+    }
+
 }

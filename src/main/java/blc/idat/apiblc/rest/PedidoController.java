@@ -4,6 +4,7 @@ import blc.idat.apiblc.models.DetallePedido;
 import blc.idat.apiblc.models.Estado;
 import blc.idat.apiblc.models.Pedido;
 import blc.idat.apiblc.models.Producto;
+import blc.idat.apiblc.models.custom.PedidoFecha;
 import blc.idat.apiblc.models.custom.Venta;
 import blc.idat.apiblc.models.custom.PedidoUpdateCustom;
 import blc.idat.apiblc.service.DetallePedidoService;
@@ -67,4 +68,20 @@ public class PedidoController {
     public Pedido updateEstadoPed(@PathVariable("id") Long id,@RequestBody Estado estado){
         return pedService.updateEstadoPed(id, estado);
     }
+
+    @GetMapping("/estadox/{id}")
+    public List<Pedido> findPedidosByEstado(@PathVariable("id") int id){
+        return pedService.findPedidosByEstado(id);
+    }
+
+    @GetMapping("/dni/{dni}")
+    public List<Pedido> findPedidosByDni(@PathVariable("dni") String dni){
+        return pedService.findPedidosByDni(dni);
+    }
+
+    @PostMapping("/fechas")
+    public List<Pedido> findPedidosByDate(@RequestBody PedidoFecha pedidoFecha){
+        return  pedService.findPedidosByDate(pedidoFecha);
+    }
+
 }
