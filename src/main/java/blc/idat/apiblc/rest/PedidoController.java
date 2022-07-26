@@ -84,4 +84,9 @@ public class PedidoController {
         return  pedService.findPedidosByDate(pedidoFecha);
     }
 
+    @PutMapping("/actualizarp/{id}")
+    public Pedido actualizarPedido(@RequestBody Pedido ped, @PathVariable("id") Long id ){
+        return pedService.actualizarPedido(ped,id);
+    }
+
 }

@@ -28,4 +28,6 @@ public interface PedidoService {
 
     List<Pedido> findPedidosByDate(PedidoFecha pedidoFecha);
 
+    Pedido actualizarPedido(Pedido pedido , Long id);
+
 }
