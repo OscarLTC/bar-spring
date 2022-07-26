@@ -84,4 +84,10 @@ public class PedidoServiceImp implements PedidoService{
         return pedRepo.findPedidosByDate(pedidoFecha.getFecha_inicio() , pedidoFecha.getFecha_final());
     }
 
+    @Override
+    public Pedido actualizarPedido(Pedido ped , Long id){
+        ped.setCod_pedido(id);
+        return pedRepo.save(ped);
+    }
+
 }
