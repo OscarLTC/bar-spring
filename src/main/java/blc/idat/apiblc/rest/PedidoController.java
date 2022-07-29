@@ -5,6 +5,7 @@ import blc.idat.apiblc.models.Estado;
 import blc.idat.apiblc.models.Pedido;
 import blc.idat.apiblc.models.Producto;
 import blc.idat.apiblc.models.custom.PedidoFecha;
+import blc.idat.apiblc.models.custom.PedidoUpdateCustom02;
 import blc.idat.apiblc.models.custom.Venta;
 import blc.idat.apiblc.models.custom.PedidoUpdateCustom;
 import blc.idat.apiblc.service.DetallePedidoService;
@@ -84,9 +85,9 @@ public class PedidoController {
         return  pedService.findPedidosByDate(pedidoFecha);
     }
 
-    @PutMapping("/actualizarp/{id}")
-    public Pedido actualizarPedido(@RequestBody Pedido ped, @PathVariable("id") Long id ){
-        return pedService.actualizarPedido(ped,id);
+    @PutMapping("/actualizarp")
+    public Pedido actualizarPedido(@RequestBody PedidoUpdateCustom02 ped){
+        return pedService.actualizarPedido(ped);
     }
 
 }

@@ -1,10 +1,13 @@
 package blc.idat.apiblc.service;
 
+import blc.idat.apiblc.models.Cliente;
 import blc.idat.apiblc.models.Estado;
 import blc.idat.apiblc.models.Pedido;
 import blc.idat.apiblc.models.Producto;
 import blc.idat.apiblc.models.custom.PedidoFecha;
 import blc.idat.apiblc.models.custom.PedidoUpdateCustom;
+import blc.idat.apiblc.models.custom.PedidoUpdateCustom02;
+import blc.idat.apiblc.repository.ClienteRepository;
 import blc.idat.apiblc.repository.PedidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +19,9 @@ public class PedidoServiceImp implements PedidoService{
 
     @Autowired
     private PedidoRepository pedRepo;
+
+    @Autowired
+    private ClienteRepository cliRepo;
 
     @Override
     public List<Pedido> findbyCliente(Long id) {
@@ -85,8 +91,20 @@ public class PedidoServiceImp implements PedidoService{
     }
 
     @Override
-    public Pedido actualizarPedido(Pedido ped , Long id){
-        ped.setCod_pedido(id);
+    public Pedido actualizarPedido(PedidoUpdateCustom02 pedido){
+
+        Pedido ped = findPedidosById(pedido.getCodigo()).get(0);
+
+        ped.setEstado(pedido.getEstado());
+        ped.setDni_recibidor(pedido.getDni());
+        ped.setFecha_envio(pedido.getFecha());
+
+        pedRepo.save(ped);
+        Cliente cli = cliRepo.findById(ped.getCliente().getCodigo()).get();
+
+        cli.setTelefono(pedido.getTelefono());
+        cliRepo.save(cli);
+
         return pedRepo.save(ped);
     }
 
