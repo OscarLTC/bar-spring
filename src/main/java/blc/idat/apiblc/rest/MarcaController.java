@@ -25,4 +25,9 @@ public class MarcaController {
         return marcaService.findByCategory(id);
     }
 
+    @PostMapping("/save")
+    public Marca registerMarca(@RequestBody Marca marca){
+        return marcaService.registerMarca(marca);
+    }
+
 }

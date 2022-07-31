@@ -24,4 +24,9 @@ public class MarcaServiceImpl implements MarcaService{
         return marcaRepository.findByCategory(id);
     }
 
+    @Override
+    public Marca registerMarca(Marca marca){
+        return marcaRepository.save(marca);
+    }
+
 }
