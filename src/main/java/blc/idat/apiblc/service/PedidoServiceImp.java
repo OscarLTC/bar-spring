@@ -42,9 +42,6 @@ public class PedidoServiceImp implements PedidoService{
                 pedidoInBd.setFecha_envio(pedidoCustom.getFecha());
                 pedidoInBd.setEstado(new Estado(2, "Postergado"));
                 // Pero si la fecha entrante es diferente a la fecha que está en pedido y el estado ya es Postergado, entonces no se hace la actualización
-            } else if (!pedidoInBd.getFecha_envio().toString().equals(pedidoCustom.getFecha().toString()) &&
-                    pedidoInBd.getEstado().getNombre().equals("Postergado")){
-                throw new Exception();
             }
 
             return pedRepo.save(pedidoInBd);
