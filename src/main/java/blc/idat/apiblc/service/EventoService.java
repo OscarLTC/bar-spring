@@ -9,4 +9,7 @@ public interface EventoService {
     List<Evento> findAll();
 
     Evento registerEvento(Evento evento);
+
+    List<Evento> findEventoById(Long id);
+
 }

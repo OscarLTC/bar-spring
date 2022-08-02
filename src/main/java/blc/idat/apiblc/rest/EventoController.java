@@ -26,4 +26,9 @@ public class EventoController {
         return eventService.registerEvento(evento);
     }
 
+    @GetMapping("/buscar/{id}")
+    public List<Evento> findIdEvento(@PathVariable("id")Long id) {
+        return eventService.findEventoById(id);
+    }
+
 }
