@@ -79,4 +79,9 @@ public class ProductoServiceImpl implements ProductoService{
         proRepo.updateStatus(id);
     }
 
+    @Override
+    public List<Producto> findProductsByState(Boolean estado) {
+        return proRepo.findProductsByState(estado);
+    }
+
 }
