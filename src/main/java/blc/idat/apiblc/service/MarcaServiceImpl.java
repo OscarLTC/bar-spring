@@ -29,4 +29,9 @@ public class MarcaServiceImpl implements MarcaService{
         return marcaRepository.save(marca);
     }
 
+    @Override
+    public void changeStatus(Long id) {
+        marcaRepository.changeStatus(id);
+    }
+
 }

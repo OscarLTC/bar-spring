@@ -25,9 +25,15 @@ public class MarcaController {
         return marcaService.findByCategory(id);
     }
 
+    /*No hacer prueba a menos que seas el encargado según la planificación en scrum*/
     @PostMapping("/save")
     public Marca registerMarca(@RequestBody Marca marca){
         return marcaService.registerMarca(marca);
+    }
+
+    @PutMapping("/estado/{id}")
+    public void changeStatus(@PathVariable Long id){
+        marcaService.changeStatus(id);
     }
 
 }

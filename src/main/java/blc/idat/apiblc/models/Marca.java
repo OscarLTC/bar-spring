@@ -26,6 +26,9 @@ public class Marca implements Serializable {
     @Column(name = "nombre")
     private String nombre;
 
+    @Column(name = "estado")
+    private boolean estado;
+
     @ManyToOne
     @JoinColumn(name="cod_categoria", nullable = false)
     private Categoria categoria;
