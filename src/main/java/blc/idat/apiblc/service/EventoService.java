@@ -7,4 +7,6 @@ import java.util.List;
 public interface EventoService {
 
     List<Evento> findAll();
+
+    Evento registerEvento(Evento evento);
 }

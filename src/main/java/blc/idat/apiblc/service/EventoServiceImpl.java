@@ -17,4 +17,9 @@ public class EventoServiceImpl implements EventoService{
     public List<Evento> findAll() {
         return eventRepo.findAll();
     }
+
+    @Override
+    public Evento registerEvento(Evento evento) {
+        return eventRepo.save(evento);
+    }
 }
