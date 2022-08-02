@@ -12,4 +12,7 @@ public interface MarcaService {
     List<Marca> findByCategory(Long id);
 
     Marca registerMarca(Marca marca);
+
+    void changeStatus(Long id);
+
 }
