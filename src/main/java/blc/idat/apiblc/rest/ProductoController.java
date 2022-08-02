@@ -70,4 +70,9 @@ public class ProductoController {
         proService.updateStatus(id);
         return ResponseEntity.ok().build();
     }
+
+    @GetMapping("/estado/{estado}")
+    public List<Producto> findProductsByState (@PathVariable("estado") Boolean estado){
+        return proService.findProductsByState(estado);
+    }
 }
