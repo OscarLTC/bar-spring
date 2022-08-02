@@ -22,4 +22,9 @@ public class EventoServiceImpl implements EventoService{
     public Evento registerEvento(Evento evento) {
         return eventRepo.save(evento);
     }
+
+    @Override
+    public List<Evento> findEventoById(Long id){
+        return eventRepo.findEventoById(id);
+    }
 }
