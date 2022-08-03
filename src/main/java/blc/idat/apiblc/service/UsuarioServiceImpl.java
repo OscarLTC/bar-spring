@@ -31,9 +31,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 
             if (usuarioInBd != null) throw new Exception();
 
-            usuRepo.save(usuario);
-
-            return usuario;
+            return usuRepo.save(usuario);
 
         } catch (Exception e){
             return null;
