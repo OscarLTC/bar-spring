@@ -9,6 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
+
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE) // Mantengan esta anotación para trabajar con la bd real
 public class CategoriaJpaTest {
@@ -33,8 +37,9 @@ public class CategoriaJpaTest {
     // No usen la anotación rollback = false para no afectar los registros de la bd directamente
 
     @Test
-    public void PlantillaTest(){
-        System.out.println("@Test -> PlantillaTest");
+    public void ListadoCategoriasTest(){
+        assertNotNull(categoriaRepository.findAll());
+        System.out.println("@Test -> ListadoCategoriasTest");
     }
 
 }
