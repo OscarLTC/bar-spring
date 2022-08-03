@@ -13,6 +13,6 @@ public interface MarcaService {
 
     Marca registerMarca(Marca marca);
 
-    void changeStatus(Long id);
+    Integer changeStatus(Long id);
 
 }

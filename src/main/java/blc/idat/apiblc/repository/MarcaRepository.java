@@ -17,6 +17,6 @@ public interface MarcaRepository extends JpaRepository<Marca, Long> {
     @Modifying(clearAutomatically = true)
     @Transactional
     @Query(value = "update marca m set m.estado = false where m.cod_marca = :id", nativeQuery = true)
-    void changeStatus(@Param("id") Long id);
+    Integer changeStatus(@Param("id") Long id);
 
 }

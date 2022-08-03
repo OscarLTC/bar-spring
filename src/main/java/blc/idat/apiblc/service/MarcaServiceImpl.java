@@ -30,8 +30,8 @@ public class MarcaServiceImpl implements MarcaService{
     }
 
     @Override
-    public void changeStatus(Long id) {
-        marcaRepository.changeStatus(id);
+    public Integer changeStatus(Long id) {
+        return marcaRepository.changeStatus(id);
     }
 
 }
