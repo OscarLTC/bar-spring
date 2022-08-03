@@ -2,7 +2,9 @@ package blc.idat.apiblc;
 
 import blc.idat.apiblc.models.Producto;
 import blc.idat.apiblc.repository.ProductoRepository;
+import java.util.List;
 import org.junit.jupiter.api.AfterAll;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,8 +35,11 @@ public class ProductoJpaTest {
     // No usen la anotación rollback = false para no afectar los registros de la bd directamente
 
     @Test
-    public void PlantillaTest(){
-        System.out.println("@Test -> PlantillaTest");
+    public void ProductoPorMarcaTest(){
+        long cod = 2;
+        List<Producto> pro = productoRepository.findByBrand(cod);
+        assertNotNull(pro);
+        System.out.println("@Test -> ProductoPorMarcaTest()");
     }
 
 }
