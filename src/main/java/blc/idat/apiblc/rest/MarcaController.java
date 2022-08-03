@@ -32,8 +32,8 @@ public class MarcaController {
     }
 
     @PutMapping("/estado/{id}")
-    public void changeStatus(@PathVariable Long id){
-        marcaService.changeStatus(id);
+    public Integer changeStatus(@PathVariable Long id){
+        return marcaService.changeStatus(id);
     }
 
 }
