@@ -1,8 +1,10 @@
 package blc.idat.apiblc.service;
 
 import blc.idat.apiblc.models.Evento;
+import blc.idat.apiblc.models.ImagenSecundaria;
 import blc.idat.apiblc.models.custom.PedidoFecha;
 import blc.idat.apiblc.repository.EventoRepository;
+import blc.idat.apiblc.repository.ImagenSecundariaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +17,9 @@ public class EventoServiceImpl implements EventoService{
     @Autowired
     private EventoRepository eventRepo;
 
+    @Autowired
+    private ImagenSecundariaRepository imagenSecundariaRepo;
+
     @Override
     public List<Evento> findAll() {
         return eventRepo.findAll();
@@ -22,7 +27,16 @@ public class EventoServiceImpl implements EventoService{
 
     @Override
     public Evento registerEvento(Evento evento) {
-        return eventRepo.save(evento);
+        Evento e = eventRepo.save(evento);
+
+        for (ImagenSecundaria img : e.getImagenes()){
+            ImagenSecundaria imagenSec = new ImagenSecundaria(null, img.getImagen(), e);
+            imagenSecundariaRepo.save(imagenSec);
+        }
+
+        return e;
+
+
     }
 
     @Override
