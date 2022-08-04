@@ -42,4 +42,9 @@ public class EventoController {
     public Evento findByDate(@PathVariable("fecha") String fecha) {
         return eventService.findByDate(Date.valueOf(fecha));
     }
+
+    @PutMapping("/update/{id}")
+    public void updateStatusEvent(@PathVariable("id") Long id) {
+        eventService.updateStatusEvent(id);
+    }
 }

@@ -39,4 +39,11 @@ public class EventoServiceImpl implements EventoService{
     public Evento findByDate(Date fecha) {
         return eventRepo.findByFecha((java.sql.Date) fecha);
     }
+
+    @Override
+    public void updateStatusEvent(Long id) {
+        eventRepo.updateStatusEvent(id);
+    }
+
+
 }
