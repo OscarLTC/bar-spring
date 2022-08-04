@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.List;
 
 @Builder
 @NoArgsConstructor
@@ -37,6 +38,14 @@ public class Evento implements Serializable {
     @Column(name = "fecha")
     private Date fecha;
 
+    @Column(name = "hora")
+    private String hora;
+
     @Column(name = "estado")
     private boolean estado;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "evento")
+    private List<ImagenSecundaria> imagenes;
+
+
 }
