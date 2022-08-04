@@ -1,5 +1,6 @@
 package blc.idat.apiblc;
 
+import blc.idat.apiblc.models.Marca;
 import blc.idat.apiblc.models.Producto;
 import blc.idat.apiblc.repository.ProductoRepository;
 import java.util.List;
@@ -40,6 +41,18 @@ public class ProductoJpaTest {
         List<Producto> pro = productoRepository.findByBrand(cod);
         assertNotNull(pro);
         System.out.println("@Test -> ProductoPorMarcaTest()");
+    }
+
+    @Test
+    public void RegistrarProductoTest(){
+        producto = new Producto(0L, "Viva Backus Combo 2 (450ml) Pack x 15", 30,
+                "https://backusya.vtexassets.com/arquivos/ids/156194-800-auto?v=637747462819770000&width=800&height=auto&aspect=true",
+                true, new Marca(25L,null, true, null));
+
+        Producto pro = productoRepository.save(producto);
+        assertNotNull(pro);
+        System.out.println("@Test -> RegistrarProductoTest()");
+
     }
 
 }
