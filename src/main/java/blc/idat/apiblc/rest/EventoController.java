@@ -2,10 +2,12 @@ package blc.idat.apiblc.rest;
 
 
 import blc.idat.apiblc.models.Evento;
+import blc.idat.apiblc.models.custom.PedidoFecha;
 import blc.idat.apiblc.service.EventoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Date;
 import java.util.List;
 
 @RestController
@@ -26,9 +28,18 @@ public class EventoController {
         return eventService.registerEvento(evento);
     }
 
-    @GetMapping("/buscar/{id}")
+    @GetMapping("/evento/{id}")
     public List<Evento> findIdEvento(@PathVariable("id")Long id) {
         return eventService.findEventoById(id);
     }
 
+    @PostMapping("/buscar")
+    public List<Evento> findEventoByDate(@RequestBody PedidoFecha pedidoFecha) {
+        return eventService.findEventoByDate(pedidoFecha);
+    }
+
+    @GetMapping("/fecha/{fecha}")
+    public Evento findByDate(@PathVariable("fecha") String fecha) {
+        return eventService.findByDate(Date.valueOf(fecha));
+    }
 }
