@@ -18,4 +18,6 @@ public interface EventoService {
     List<Evento> findEventoByDate(PedidoFecha pedidoFecha);
 
     Evento findByDate(Date fecha);
+
+    void updateStatusEvent(Long id);
 }
