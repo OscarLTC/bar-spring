@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import static org.junit.jupiter.api.Assertions.*;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE) // Mantengan esta anotación para trabajar con la bd real
@@ -33,8 +34,10 @@ public class EventoJpaTest {
     // No usen la anotación rollback = false para no afectar los registros de la bd directamente
 
     @Test
-    public void PlantillaTest(){
-        System.out.println("@Test -> PlantillaTest");
+    public void ListadoEventosTest(){
+        assertNotNull(eventoRepository.findAll());
+
+        System.out.println("@Test -> ListadoEventosTest");
     }
 
 }
