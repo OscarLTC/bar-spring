@@ -23,7 +23,7 @@ public class Pedido implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cod_pedido")
-    private long cod_pedido;
+    private Long cod_pedido;
 
     @Column(name = "fecha_solicitud")
     private Date fecha_solicitud;
