@@ -22,7 +22,7 @@ public class Estado implements Serializable {
 
     @Id
     @Column(name = "cod_pedido_estado")
-    private int codigo;
+    private Long codigo;
 
     @Column(name = "nombre")
     private String nombre;

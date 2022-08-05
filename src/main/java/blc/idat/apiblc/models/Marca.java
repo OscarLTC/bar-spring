@@ -21,7 +21,7 @@ public class Marca implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cod_marca")
-    private long codigo;
+    private Long codigo;
 
     @Column(name = "nombre")
     private String nombre;

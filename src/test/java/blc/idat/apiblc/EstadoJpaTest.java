@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE) // Mantengan esta anotación para trabajar con la bd real
 public class EstadoJpaTest {
@@ -37,4 +39,15 @@ public class EstadoJpaTest {
         System.out.println("@Test -> PlantillaTest");
     }
 
+    @Test
+    public void ListadoEstadosTest(){
+        assertNotNull(estadoRepository.findAll());
+        System.out.println("@Test -> ListadoEstadosTest");
+    }
+
+    @Test
+    public void findEstadoByIdTest(){
+        assertNotNull(estadoRepository.findById(1L));
+        System.out.println("@Test -> findEstadoByIdTest");
+    }
 }

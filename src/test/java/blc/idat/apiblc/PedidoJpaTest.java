@@ -67,10 +67,10 @@ public class PedidoJpaTest {
         java.sql.Date fechaSQL = new java.sql.Date(fecha.getTime());
         
         Estado e = new Estado();
-        e.setCodigo(2);
+        e.setCodigo(2L);
         e.setNombre("Postergado");
         
-        pedido.setCod_pedido(3);
+        pedido.setCod_pedido(3L);
         pedido.setDni_recibidor("76566655");
         pedido.setEstado(e);
         pedido.setFecha_envio(fechaSQL);
