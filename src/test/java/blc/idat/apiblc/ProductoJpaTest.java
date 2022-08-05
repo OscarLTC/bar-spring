@@ -1,10 +1,18 @@
 package blc.idat.apiblc;
 
+import blc.idat.apiblc.models.Estado;
 import blc.idat.apiblc.models.Marca;
+import blc.idat.apiblc.models.Pedido;
 import blc.idat.apiblc.models.Producto;
 import blc.idat.apiblc.repository.ProductoRepository;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import org.junit.jupiter.api.AfterAll;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -55,4 +63,47 @@ public class ProductoJpaTest {
 
     }
 
+    @Test
+    public void ListadoProductoTest(){
+        assertNotNull(productoRepository.findAll());
+        System.out.println("@Test -> ListadoProductosTest");
+    }
+
+    @Test
+    public void findByIdTest(){
+        assertNotNull(productoRepository.findById(1L));
+        System.out.println("@Test -> findByIDTest");
+    }
+
+    @Test
+    public void findByNameTest(){
+        List<Producto> p = productoRepository.findByName("Coca");
+        assertNotNull(p);
+        System.out.println("@Test -> findByNameTest");
+    }
+
+    @Test
+    public void findByCategoryTest(){
+        List<Producto> p = productoRepository.findByCategory(1L);
+        assertNotNull(p);
+        System.out.println("@Test -> findByCategoryTest");
+    }
+
+    @Test
+    public void findByPrecioTest(){
+        List<Producto> p = productoRepository.findByPrecio(3.0 , 5.0);
+        assertNotNull(p);
+        System.out.println("@Test -> findByPrecioTest");
+    }
+
+    @Test
+    public void UpdateStatusProductTest()throws ParseException {
+        assertEquals(1,productoRepository.updateStatus(1L));
+        System.out.println("@Test -> UpdateStatusProductoTest()");
+    }
+    @Test
+    public void UpdateStatusErrorTest(){
+        assertEquals(0, productoRepository.updateStatus(80L));
+        System.out.println("@Test -> UpdateStatusErrorTest");
+    }
 }
