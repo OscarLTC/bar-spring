@@ -1,6 +1,7 @@
 package blc.idat.apiblc.service;
 
 import blc.idat.apiblc.models.Evento;
+import blc.idat.apiblc.models.Producto;
 import blc.idat.apiblc.models.custom.PedidoFecha;
 import blc.idat.apiblc.models.custom.PedidoUpdateCustom;
 
@@ -20,4 +21,6 @@ public interface EventoService {
     Evento findByDate(Date fecha);
 
     void updateStatusEvent(Long id);
+
+    List<Evento> findEventsByState(Boolean estado);
 }

@@ -2,6 +2,7 @@ package blc.idat.apiblc.rest;
 
 
 import blc.idat.apiblc.models.Evento;
+import blc.idat.apiblc.models.Producto;
 import blc.idat.apiblc.models.custom.PedidoFecha;
 import blc.idat.apiblc.service.EventoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,5 +47,10 @@ public class EventoController {
     @PutMapping("/update/{id}")
     public void updateStatusEvent(@PathVariable("id") Long id) {
         eventService.updateStatusEvent(id);
+    }
+
+    @GetMapping("/estado/{estado}")
+    public List<Evento> findEventsByState (@PathVariable("estado") Boolean estado){
+        return eventService.findEventsByState(estado);
     }
 }

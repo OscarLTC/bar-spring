@@ -2,6 +2,7 @@ package blc.idat.apiblc.service;
 
 import blc.idat.apiblc.models.Evento;
 import blc.idat.apiblc.models.ImagenSecundaria;
+import blc.idat.apiblc.models.Producto;
 import blc.idat.apiblc.models.custom.PedidoFecha;
 import blc.idat.apiblc.repository.EventoRepository;
 import blc.idat.apiblc.repository.ImagenSecundariaRepository;
@@ -59,5 +60,8 @@ public class EventoServiceImpl implements EventoService{
         eventRepo.updateStatusEvent(id);
     }
 
-
+    @Override
+    public List<Evento> findEventsByState(Boolean estado) {
+        return eventRepo.findEventsByState(estado);
+    }
 }
