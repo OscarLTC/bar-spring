@@ -2,6 +2,7 @@ package blc.idat.apiblc.repository;
 
 import blc.idat.apiblc.models.Evento;
 import blc.idat.apiblc.models.Pedido;
+import blc.idat.apiblc.models.Producto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -28,4 +29,8 @@ public interface EventoRepository extends JpaRepository<Evento, Long> {
     @Transactional
     @Query(value = "update evento e set e.estado = !e.estado where e.cod_evento = :id", nativeQuery = true)
     void updateStatusEvent(@Param("id") Long id);
+
+    @Query(value = "select e from Evento e where e.estado = :estado")
+    List<Evento> findEventsByState(@Param("estado") Boolean estado);
+
 }
