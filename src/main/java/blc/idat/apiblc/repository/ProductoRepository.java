@@ -43,7 +43,7 @@ public interface ProductoRepository extends JpaRepository<Producto, Long> {
     @Modifying(clearAutomatically = true)
     @Transactional
     @Query(value = "update producto p set p.estado = !p.estado where p.cod_producto = :id", nativeQuery = true)
-    void updateStatus(@Param("id") Long id);
+    Integer updateStatus(@Param("id") Long id);
 
     @Query(value = "select p from Producto p where p.estado = :estado")
     List<Producto> findProductsByState(@Param("estado") Boolean estado);

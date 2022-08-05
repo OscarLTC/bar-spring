@@ -75,8 +75,8 @@ public class ProductoServiceImpl implements ProductoService{
     }
 
     @Override
-    public void updateStatus(Long id) {
-        proRepo.updateStatus(id);
+    public Integer updateStatus(Long id) {
+        return proRepo.updateStatus(id);
     }
 
     @Override
