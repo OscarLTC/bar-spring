@@ -31,7 +31,7 @@ public class EventoServiceImpl implements EventoService{
         Evento e = eventRepo.save(evento);
 
         for (ImagenSecundaria img : e.getImagenes()){
-            ImagenSecundaria imagenSec = new ImagenSecundaria(null, img.getImagen(), e);
+            ImagenSecundaria imagenSec = new ImagenSecundaria(null, img.getImagen(), e.getCodigo());
             imagenSecundariaRepo.save(imagenSec);
         }
 

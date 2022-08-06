@@ -26,9 +26,8 @@ public class ImagenSecundaria {
     @Column(name ="imagen")
     private String imagen;
 
-    @ManyToOne
-    @JoinColumn(name = "cod_evento", nullable = false)
-    private Evento evento;
+    @Column(name = "cod_evento")
+    private Long cod_evento;
 
 
 }

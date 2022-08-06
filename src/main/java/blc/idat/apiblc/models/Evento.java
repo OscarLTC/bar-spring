@@ -44,7 +44,7 @@ public class Evento implements Serializable {
     @Column(name = "estado")
     private boolean estado;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "evento")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "cod_evento")
     private List<ImagenSecundaria> imagenes;
 
 
