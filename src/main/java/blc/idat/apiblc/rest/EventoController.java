@@ -29,7 +29,7 @@ public class EventoController {
         return eventService.registerEvento(evento);
     }
 
-    @GetMapping("/evento/{id}")
+    @GetMapping("/{id}")
     public List<Evento> findIdEvento(@PathVariable("id")Long id) {
         return eventService.findEventoById(id);
     }
