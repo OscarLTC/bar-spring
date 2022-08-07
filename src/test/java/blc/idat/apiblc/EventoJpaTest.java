@@ -40,4 +40,11 @@ public class EventoJpaTest {
         System.out.println("@Test -> ListadoEventosTest");
     }
 
+    @Test
+    public void BuscarEventoTest(){
+        assertNotNull(eventoRepository.findEventoById(2L));
+        System.out.println("@Test -> BuscarEventoTest");
+    }
+
+
 }
