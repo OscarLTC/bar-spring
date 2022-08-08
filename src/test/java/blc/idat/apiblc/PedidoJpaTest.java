@@ -86,4 +86,11 @@ public class PedidoJpaTest {
         System.out.println("@Test -> ListarPedidosTest()");
     }
 
+    @Test
+    public void PedidoPorDniTest(){
+        List<Pedido> p = pedidoRepository.findPedidosByDni("7388306");
+        assertNotNull(p);
+        System.out.println("@Test -> PedidoPorDniTest()");
+    }
+
 }
