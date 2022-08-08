@@ -117,4 +117,10 @@ public class ProductoJpaTest {
         System.out.println("@Test -> ActualizarProductoTest");
     }
 
+    @Test
+    public void findByClienteTest(){
+        List<Producto> p = productoRepository.findByCliente(1);
+        assertNotNull(p);
+        System.out.println("@Test -> findByClienteTest");
+    }
 }
