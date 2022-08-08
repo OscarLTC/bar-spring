@@ -33,4 +33,6 @@ public interface EventoRepository extends JpaRepository<Evento, Long> {
     @Query(value = "select e from Evento e where e.estado = :estado")
     List<Evento> findEventsByState(@Param("estado") Boolean estado);
 
+
+
 }

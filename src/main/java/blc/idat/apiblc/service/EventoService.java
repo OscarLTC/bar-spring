@@ -23,4 +23,6 @@ public interface EventoService {
     void updateStatusEvent(Long id);
 
     List<Evento> findEventsByState(Boolean estado);
+
+    Evento updateEvent(Evento e);
 }
