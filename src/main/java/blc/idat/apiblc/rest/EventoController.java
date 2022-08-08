@@ -53,4 +53,10 @@ public class EventoController {
     public List<Evento> findEventsByState (@PathVariable("estado") Boolean estado){
         return eventService.findEventsByState(estado);
     }
+
+    @PutMapping("/actualizar_evento/{codigo}")
+    public Evento updateEvent(@PathVariable("codigo") Long codigo, @RequestBody Evento e){
+        e.setCodigo(codigo);
+        return eventService.updateEvent(e);
+    }
 }

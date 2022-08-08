@@ -9,6 +9,7 @@ import blc.idat.apiblc.repository.ImagenSecundariaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -64,4 +65,18 @@ public class EventoServiceImpl implements EventoService{
     public List<Evento> findEventsByState(Boolean estado) {
         return eventRepo.findEventsByState(estado);
     }
+
+    @Override
+    public Evento updateEvent(Evento e) {
+        imagenSecundariaRepo.deleteImageForEvent(e.getCodigo());
+
+        for (ImagenSecundaria img : e.getImagenes()){
+            ImagenSecundaria imagenSec = new ImagenSecundaria(null, img.getImagen(), e.getCodigo());
+            imagenSecundariaRepo.save(imagenSec);
+        }
+        e.setImagenes(new ArrayList<>());
+        return eventRepo.save(e);
+    }
+
+
 }
