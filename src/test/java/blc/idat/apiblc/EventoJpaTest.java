@@ -10,6 +10,9 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.text.ParseException;
+
+
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE) // Mantengan esta anotación para trabajar con la bd real
 public class EventoJpaTest {
@@ -45,6 +48,5 @@ public class EventoJpaTest {
         assertNotNull(eventoRepository.findEventoById(2L));
         System.out.println("@Test -> BuscarEventoTest");
     }
-
 
 }

@@ -106,4 +106,15 @@ public class ProductoJpaTest {
         assertEquals(0, productoRepository.updateStatus(80L));
         System.out.println("@Test -> UpdateStatusErrorTest");
     }
+
+    @Test
+    public void ActualizarProductoTest()throws ParseException{
+        producto= new Producto(9L, "Barbarian (3) Barbarian LA NENA Wheat Ale Lata (269ml) Pack x 4", 75,
+                "https://backusya.vtexassets.com/arquivos/ids/156684-1200-auto?v=637842791489700000&width=1200&height=auto&aspect=true",
+                true, new Marca(24L,null, true, null));
+        Producto p = productoRepository.save(producto);
+        assertNotNull(p);
+        System.out.println("@Test -> ActualizarProductoTest");
+    }
+
 }
