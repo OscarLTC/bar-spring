@@ -1,6 +1,7 @@
 package blc.idat.apiblc;
 
 import blc.idat.apiblc.models.Evento;
+import blc.idat.apiblc.models.ImagenSecundaria;
 import blc.idat.apiblc.repository.EventoRepository;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -10,8 +11,10 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.awt.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -74,5 +77,18 @@ public class EventoJpaTest {
         Evento e = eventoRepository.findByFecha(fechaSQL);
         assertNotNull(e);
         System.out.println("@Test -> BuscarPorFechaTest()");
+    }
+
+    @Test
+    public void RegistrarEventoTest() throws ParseException{
+
+        SimpleDateFormat formato = new SimpleDateFormat("yyyyMMdd");
+        Date fecha = formato.parse("20220825"); // --- debe coincidir con la base de datos
+        java.sql.Date fechaSQL = new java.sql.Date(fecha.getTime());
+        evento = new Evento(null, "La combinación de la cumbia", "Celebracion del aniversario del Bar 2", "https://i.postimg.cc/sxHZ1MkF/Evento-06.jpg"
+        , fechaSQL, "22:30", true,  new ArrayList<ImagenSecundaria>());
+        Evento e = eventoRepository.save(evento);
+        assertNotNull(e);
+        System.out.println("@Test -> RegistrarEventoTest()");
     }
 }
