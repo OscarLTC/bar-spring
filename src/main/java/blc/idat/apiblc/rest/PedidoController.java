@@ -4,10 +4,7 @@ import blc.idat.apiblc.models.DetallePedido;
 import blc.idat.apiblc.models.Estado;
 import blc.idat.apiblc.models.Pedido;
 import blc.idat.apiblc.models.Producto;
-import blc.idat.apiblc.models.custom.PedidoFecha;
-import blc.idat.apiblc.models.custom.PedidoUpdateCustom02;
-import blc.idat.apiblc.models.custom.Venta;
-import blc.idat.apiblc.models.custom.PedidoUpdateCustom;
+import blc.idat.apiblc.models.custom.*;
 import blc.idat.apiblc.service.DetallePedidoService;
 import blc.idat.apiblc.service.PedidoService;
 import blc.idat.apiblc.service.VentaService;
@@ -88,6 +85,11 @@ public class PedidoController {
     @PutMapping("/actualizarp")
     public Pedido actualizarPedido(@RequestBody PedidoUpdateCustom02 ped){
         return pedService.actualizarPedido(ped);
+    }
+
+    @PutMapping("/actualizarp2")
+    public void updatePedido(@RequestBody PedidoUpdateCustom03 ped){
+        pedService.updatePedido(ped);
     }
 
 }

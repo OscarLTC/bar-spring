@@ -6,6 +6,7 @@ import blc.idat.apiblc.models.Producto;
 import blc.idat.apiblc.models.custom.PedidoFecha;
 import blc.idat.apiblc.models.custom.PedidoUpdateCustom;
 import blc.idat.apiblc.models.custom.PedidoUpdateCustom02;
+import blc.idat.apiblc.models.custom.PedidoUpdateCustom03;
 
 import java.util.List;
 
@@ -30,5 +31,7 @@ public interface PedidoService {
     List<Pedido> findPedidosByDate(PedidoFecha pedidoFecha);
 
     Pedido actualizarPedido(PedidoUpdateCustom02 pedido);
+
+    void updatePedido(PedidoUpdateCustom03 pedidoCustom);
 
 }
